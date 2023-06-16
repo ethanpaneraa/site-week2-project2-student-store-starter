@@ -5,11 +5,12 @@ import ShoppingCartTable from "../shoppingCartTable/shoppingCartTable";
 export default function Sidebar(props) {
 
   const className = `sidebar ${props.sideBarIsOpen}`; 
+  console.log(props.sideBarIsOpen)
   console.log("CLASSNAME: ", className);
   return (
     <section className={className}>
-      <button onClick={props.handleSideBarToggle}>Shopping Cart</button>
-      <div className="sidebar-container">
+      <button onClick={props.handleSideBarToggle}>Cart</button>
+      <div className={"sidebar-container" + props.sideBarIsOpen} >
         <ShoppingCartTable
           products={props.products}
           shoppingCart={props.shoppingCart}

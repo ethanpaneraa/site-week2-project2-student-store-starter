@@ -1,0 +1,19 @@
+
+.shopping-cart-table {
+    width: 100%;
+    font-size: 20px;
+}
+
+th {
+    background-color: white;
+    color: black;
+}
+
+tr {
+    background-color: #808080;
+    color: white;
+}
+
+.cart-table-row {
+    margin: auto;
+}
