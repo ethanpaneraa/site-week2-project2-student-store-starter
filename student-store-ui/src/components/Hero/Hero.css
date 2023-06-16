@@ -2,15 +2,20 @@
     display: flex;
     flex-direction: row;
     text-align: left;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("https://images.pexels.com/photos/2292919/pexels-photo-2292919.jpeg?cs=srgb&dl=pexels-artem-beliaikin-2292919.jpg&fm=jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("https://as2.ftcdn.net/v2/jpg/03/72/24/51/1000_F_372245122_53x3qGtGeDUt3SBkbkyEpFI0QEoc2p1x.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: black;
-    height: 400px;
+    height: 500px;
     align-items: center;
     font-size: 24px;
+    max-width: var(--maxContentWidth);
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    padding-top: 50px;
   }
   
   .hero-text {
@@ -28,6 +33,5 @@
   
   .hero-text>img {
     width: 30%;
-    
     margin: 30px auto auto;
   }
