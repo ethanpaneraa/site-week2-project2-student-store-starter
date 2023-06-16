@@ -40,7 +40,7 @@ const ProductDetail = (props) => {
         }
 
     fetchProductByID();
-    }, [productId]); 
+    }, []); 
 
     return (
         <div className="product-detail">

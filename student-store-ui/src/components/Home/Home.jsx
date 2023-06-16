@@ -25,7 +25,10 @@ export default function Home(props) {
         products={props.products} 
         isFetching={props.isFetching} 
         searchTerm={searchTerm} 
-        activeCategory={activeCategory}/>
+        activeCategory={activeCategory}
+        handleAddItemToCart={props.handleAddItemToCart}
+        handleRemoveItemFromCart={props.handleRemoveItemFromCart}
+        shoppingCart={props.shoppingCart}/>
         <About />
         <Contact />
     </div>

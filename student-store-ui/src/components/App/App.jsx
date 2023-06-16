@@ -12,7 +12,7 @@ export default function App() {
 
   const [products, setProducts] = useState([]); 
   const [isFetching, setIsFetching] = useState(false); 
-  const [sideBarIsOpen, setSideBarIsOpen] = useState(false); 
+  const [sideBarIsOpen, setSideBarIsOpen] = useState("closed"); 
   const [shoppingCart, setShoppingCard] = useState([]); 
   const [checkoutFormData, setCheckoutOUtFormData] = useState(null); 
   const [error, setError] =useState(null); 
@@ -40,27 +40,87 @@ export default function App() {
   }, []); 
 
   // TODO: Add handleItemToCart and handleRemoveItemToCart functions
-  const handleItemToCart = (item) => {
+  const handleAddItemToCart = (item) => {
 
-  } 
+    console.log(item); 
+    const itemToAdd = {
+      "itemID": 0, 
+      "quantity": 0 
+    };
 
-  const handleRemoveItemToCart = (item) => {
+    itemToAdd.itemID = item.id;
 
+    if ((!shoppingCart.find((product) => item.id === product.itemID))) {
+      itemToAdd.quantity = 1;
+      setShoppingCard((prev) => [...prev, itemToAdd]);
+      console.log("here")
+    } else {
+      const currProduct = shoppingCart.find(product => item.id === product.itemID);
+      itemToAdd.quantity = currProduct.quantity + 1;
+      console.log("here2")
+      const newShoppingCart = shoppingCart.filter(product => { 
+        return product.itemID !== itemToAdd.itemID});
+
+      setShoppingCard([...newShoppingCart, itemToAdd])
+    }
+
+    console.log(shoppingCart);
   }
+
+  const handleRemoveItemFromCart = (item) => {
+
+    const itemToRemove = {
+      "itemID": 0, 
+      "quantity": 0 
+    };
+
+    itemToRemove.itemID = item.id;
+
+    const currProduct = shoppingCart.find(product => item.id === product.itemID);
+    if (currProduct) {
+      if (currProduct.quantity === 1) {
+        let shoppingCartNew = shoppingCart.filter((e) => {
+          return e.itemID !== itemToRemove.itemID;
+        })
+
+        setShoppingCard(shoppingCartNew);
+    } else if (currProduct.quantity > 1) {
+      itemToRemove.quantity = currProduct.quantity - 1;
+      const newShoppingCart = shoppingCart.filter(product => { 
+        return product.itemID !== itemToRemove.itemID});
+
+      setShoppingCard([...newShoppingCart, itemToRemove])
+    } 
+  }
+  console.log(shoppingCart);
+}
+  const handleSideBarToggle = () => {
+    if (sideBarIsOpen === "open") {
+      setSideBarIsOpen("closed")
+    } else {
+      setSideBarIsOpen("open"); 
+  }
+}
 
   return (
     <div className="app">
       <BrowserRouter>
         <main>
           <Navbar />
-          <Sidebar />
+          <Sidebar 
+          sideBarIsOpen={sideBarIsOpen}
+          shoppingCart={shoppingCart}
+          handleSideBarToggle={handleSideBarToggle}
+          products={products}
+          />
           <Routes>
             <Route 
               path="/" 
               element={<Home products={products} 
               isFetching={isFetching} 
-              handleItemToCart={handleItemToCart} 
-              handleRemoveItemToCart={handleRemoveItemToCart} />} />
+              handleAddItemToCart={handleAddItemToCart} 
+              handleRemoveItemFromCart={handleRemoveItemFromCart} 
+              shoppingCart={shoppingCart}/>} />
 
             <Route 
               path="/products/:productId"

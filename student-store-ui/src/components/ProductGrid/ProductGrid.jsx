@@ -18,14 +18,19 @@ const ProductGrid = (props) => {
     }
 
     return (
-        <div className='product-grid'>
+        <div id="buy-now" className='product-grid'>
             <div className='product-grid-container'>
                 {
                     props.isFetching ? (
                         <div><h2>Loading...</h2></div>
                     ) : productsGrid.map((product) => {
                         return (
-                            <ProductCard key={product.name} product={product} handleAddItemToCart={props.handleItemToCart} handleRemoveItemToCart={props.handleRemoveItemToCart} />
+                            <ProductCard 
+                                key={product.name} 
+                                product={product} 
+                                handleAddItemToCart={props.handleAddItemToCart} 
+                                handleRemoveItemFromCart={props.handleRemoveItemFromCart} 
+                                shoppingCart={props.shoppingCart}/>
                         )
                     })
 
