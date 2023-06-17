@@ -18,15 +18,15 @@ const ProductCard = (props) => {
                 </Link>
             </div>
             <div className="product-information">
-                <h3 className="text">{props.product.name}</h3>
-                <h3>${props.product.price.toFixed(2)}</h3>
-            </div>
-            <div className="button-container">
-                <button onClick={(event) => {props.handleAddItemToCart(props.product)}}>+</button>
-                <button onClick={(event) => {props.handleRemoveItemFromCart(props.product)}}>-</button>
-            </div>
-            <div>
-            {getProductQuantity() != null && getProductQuantity().quantity > 0 ? <h4>{getProductQuantity().quantity}</h4> : ""}
+                <div className="main-product-info">
+                    <h3 className="text">{props.product.name}</h3>
+                    <h3>${props.product.price.toFixed(2)}</h3>
+                    {getProductQuantity() != null && getProductQuantity().quantity > 0 ? <h3 className="product-quantaity">Quantity: {getProductQuantity().quantity}</h3> : <h3></h3>}
+                </div>
+                <div className="button-container">
+                    <button onClick={(event) => {props.handleAddItemToCart(props.product)}}>+</button>
+                    <button onClick={(event) => {props.handleRemoveItemFromCart(props.product)}}>-</button>
+                </div>
             </div>
         </div>
     );
