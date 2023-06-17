@@ -14,7 +14,7 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 
 ### Core Features
 
-Deployed Application (using GitHub Pages): [Student Store UI]("https://ethanpaneraa.github.io/site-week2-project2-student-store-starter/")
+Deployed Application (using GitHub Pages): [Student Store UI](https://ethanpaneraa.github.io/site-week2-project2-student-store-starter/)
 
 ## Walkthrough Video
 
