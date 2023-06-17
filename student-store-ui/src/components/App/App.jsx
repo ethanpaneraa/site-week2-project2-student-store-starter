@@ -6,6 +6,7 @@ import Navbar from "../Navbar/Navbar"
 import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
 import ProductDetail from "../ProductDetail/ProductDetail"
+import NotFound from "../NotFound/NotFound"
 import "./App.css"
 
 export default function App() {
@@ -127,6 +128,8 @@ export default function App() {
               element={<ProductDetail 
               />}
             />
+
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
       </BrowserRouter>

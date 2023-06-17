@@ -1,6 +1,7 @@
 import React from 'react'
 import "./ProductGrid.css"
 import ProductCard from "../ProductCard/ProductCard"
+import NoItemsFound from '../NoItemsFound/NoItemsFound';
 const ProductGrid = (props) => {
 
     let productsGrid = props.products; 
@@ -17,6 +18,11 @@ const ProductGrid = (props) => {
         });
     }
 
+    if (productsGrid.length === 0) {
+        return (
+            <NoItemsFound searchQuery={props.searchTerm}/>
+        )
+    }
     return (
         <div id="buy-now" className='product-grid'>
             <div className='product-grid-container'>
