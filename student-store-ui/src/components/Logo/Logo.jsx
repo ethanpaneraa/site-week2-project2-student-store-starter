@@ -5,7 +5,7 @@ const Logo = () => {
 
     return (
 
-        <Link to="/"><img className="logo" src="https://codepath-student-store-demo.surge.sh/assets/codepath.f1b3e41a.svg"/></Link>
+        <Link to="/site-week2-project2-student-store-starter/"><img className="logo" src="https://codepath-student-store-demo.surge.sh/assets/codepath.f1b3e41a.svg"/></Link>
 
     )
 }

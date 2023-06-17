@@ -12,13 +12,15 @@ const ProductCard = (props) => {
 
     return (
         <div className="product-card">
-            <h2 className="text">{props.product.name}</h2>
             <div className="media">
                 <Link to={`/products/${props.product.id}`}>
                     <img src={props.product.image}/>
                 </Link>
             </div>
-            <h3>${props.product.price}</h3>
+            <div className="product-information">
+                <h3 className="text">{props.product.name}</h3>
+                <h3>${props.product.price.toFixed(2)}</h3>
+            </div>
             <div className="button-container">
                 <button onClick={(event) => {props.handleAddItemToCart(props.product)}}>+</button>
                 <button onClick={(event) => {props.handleRemoveItemFromCart(props.product)}}>-</button>

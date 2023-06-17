@@ -116,7 +116,7 @@ export default function App() {
           />
           <Routes>
             <Route 
-              path="/" 
+              path="/site-week2-project2-student-store-starter/" 
               element={<Home products={products} 
               isFetching={isFetching} 
               handleAddItemToCart={handleAddItemToCart} 

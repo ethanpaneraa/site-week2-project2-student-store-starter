@@ -1,13 +1,20 @@
 .product-card {
     height: 350px;
     width: 250px;
+    background: black; 
     display: flex;
     flex-direction: column;
+    border: solid 1px gray; 
 }
 
 .media img {
+    height: 250px;
     width: 100%;
-    height: 250px; 
+}
+
+.product-information {
+    color: white;
+    /* flex: 1; */
     display: flex;
-    justify-content: center;
+    border-top: solid 1px;
 }

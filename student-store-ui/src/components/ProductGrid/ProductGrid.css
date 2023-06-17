@@ -8,8 +8,8 @@
 .product-grid-container {
     display: flex;
     flex-wrap: wrap; 
-    gap: 200px;
-    padding: 20px;
+    gap: 50px;
+    padding: 50px;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
