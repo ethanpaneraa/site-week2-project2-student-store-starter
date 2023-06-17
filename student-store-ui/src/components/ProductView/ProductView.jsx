@@ -3,8 +3,11 @@ import "./ProductView.css";
 
 const ProductView = (props) => {
 
-    console.log(props)
-    console.log(props.productDetail); 
+    const getProductQuantity = () => {
+        return props.shoppingCart.find((product) => {
+            return product.itemID === props.productDetail.id;
+        })
+    }
 
     return (
         <div className="product-view-container">
@@ -18,6 +21,7 @@ const ProductView = (props) => {
                     <button onClick={(event) => {props.handleAddItemToCart(props.productDetail)}}>+</button>
                     <button onClick={(event) => {props.handleRemoveItemFromCart(props.productDetail)}}>-</button>
                 </div>
+                {getProductQuantity() != null && getProductQuantity().quantity > 0 ? <h3 className="product-quantaity">Quantity: {getProductQuantity().quantity}</h3> : <h3></h3>}
             </div>
         </div>
     );

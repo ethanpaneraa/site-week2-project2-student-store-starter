@@ -48,7 +48,8 @@ const ProductDetail = (props) => {
                 <ProductView 
                     productDetail={productDetails} 
                     handleAddItemToCart={props.handleAddItemToCart} 
-                    handleRemoveItemFromCart={props.handleRemoveItemFromCart} />
+                    handleRemoveItemFromCart={props.handleRemoveItemFromCart}
+                    shoppingCart={props.shoppingCart} />
             ) :
             (
                 <h2>Loading...</h2>
