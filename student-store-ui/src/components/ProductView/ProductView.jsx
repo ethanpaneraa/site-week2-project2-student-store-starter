@@ -1,19 +1,27 @@
 import React from "react";
 import "./ProductView.css";
 
-const ProductDetail = (props) => {
+const ProductView = (props) => {
 
+    console.log(props)
     console.log(props.productDetail); 
 
     return (
-        <div className="product-detail">
-            <h2>{props.productDetail.name}</h2>
-            <h3>${props.productDetail.price}</h3>
-            <h3>{props.productDetail.description}</h3>
-            <img src={props.productDetail.image} />
+        <div className="product-view-container">
+            <div className="product-view">
+                <h2>Product #{props.productDetail.id}</h2>
+                <h2>{props.productDetail.name}</h2>
+                <img src={props.productDetail.image} />
+                <h3>Price: ${props.productDetail.price}</h3>
+                <h3>{props.productDetail.description}</h3>
+                <div className="button-container2">
+                    <button onClick={(event) => {props.handleAddItemToCart(props.productDetail)}}>+</button>
+                    <button onClick={(event) => {props.handleRemoveItemFromCart(props.productDetail)}}>-</button>
+                </div>
+            </div>
         </div>
     );
 
 };
 
-export default ProductDetail; 
+export default ProductView; 

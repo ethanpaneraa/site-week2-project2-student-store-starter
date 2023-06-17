@@ -45,7 +45,10 @@ const ProductDetail = (props) => {
     return (
         <div className="product-detail">
             {hasFetched && !isDataFetching && !error ? (
-                <ProductView productDetail={productDetails} />
+                <ProductView 
+                    productDetail={productDetails} 
+                    handleAddItemToCart={props.handleAddItemToCart} 
+                    handleRemoveItemFromCart={props.handleRemoveItemFromCart} />
             ) :
             (
                 <h2>Loading...</h2>
