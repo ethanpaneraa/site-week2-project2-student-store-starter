@@ -12,13 +12,14 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 
 ## *Week 2* Application Features
 
-### Core Features
 
 Deployed Application (using GitHub Pages): [Student Store UI](https://ethanpaneraa.github.io/site-week2-project2-student-store-starter/)
 
 ## Walkthrough Video
 
 `https://www.loom.com/share/f9ca5fa43330467ead4be32661911506`
+
+### Core Features
 
 - [x] The website displays header, banner, search, product grid, about, contact, and footer section.
 - [x] The website displays the products at the [GET /store endpoint](https://codepath-store-api.herokuapp.com/store) on initial page load.
