@@ -26,9 +26,9 @@ const Contact = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="contact-us-media">
+                {/* <div className="contact-us-media">
                     <img src="https://codepath-student-store-demo.surge.sh/assets/happy_person.517b658d.svg" alt="picture of a women smiling" />
-                </div>
+                </div> */}
             </div>
         </div>
     );

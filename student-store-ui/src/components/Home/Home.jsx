@@ -5,6 +5,7 @@ import Hero from "../Hero/Hero"
 import ProductGrid from "../ProductGrid/ProductGrid"
 import About from "../About/About"
 import Contact from "../Contact/Contact"
+import Footer from "../Footer/Footer"
 import ProductGridSettings from "../ProductGridSettings/ProductGridSettings"
 import "./Home.css"
 
@@ -31,6 +32,7 @@ export default function Home(props) {
         shoppingCart={props.shoppingCart}/>
         <About />
         <Contact />
+        <Footer /> 
     </div>
   )
 }
