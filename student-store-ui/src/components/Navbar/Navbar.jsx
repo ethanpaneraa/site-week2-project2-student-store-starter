@@ -12,10 +12,10 @@ export default function Navbar() {
         </div>
         <SocialMediaLinks /> 
         <div className="nav-bar-buttons">
-          <a href="/#home">Home</a>
-          <a href="/#about">About</a>
-          <a href="/#contact">Contact</a>
-          <a href="/#buy-now">Buy Now</a>
+          <a href="/site-week2-project2-student-store-starter/#home">Home</a>
+          <a href="/site-week2-project2-student-store-starter/#about">About</a>
+          <a href="/site-week2-project2-student-store-starter/#contact">Contact</a>
+          <a href="/site-week2-project2-student-store-starter/#buy-now">Buy Now</a>
         </div>
       </div>
     </nav>
