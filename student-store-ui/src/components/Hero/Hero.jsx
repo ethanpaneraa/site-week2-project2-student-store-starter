@@ -1,7 +1,11 @@
+/* 
+The Hero component is responsible for rendering the header for the web app.
+It displays a welcome message and a brief description of the app's purpose.
+*/ 
 import React from 'react'
 import "./Hero.css"
-const Hero = () => {
 
+const Hero = () => {
 
     return (
         <div className="hero">
@@ -15,7 +19,6 @@ const Hero = () => {
             </div>
         </div>
     )
-
 };
 
-export default Hero; 
+export default Hero;
