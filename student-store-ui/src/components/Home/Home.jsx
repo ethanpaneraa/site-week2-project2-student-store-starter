@@ -7,32 +7,33 @@ import About from "../About/About"
 import Contact from "../Contact/Contact"
 import Footer from "../Footer/Footer"
 import ProductGridSettings from "../ProductGridSettings/ProductGridSettings"
-import "./Home.css"
 
 export default function Home(props) {
-
-  const [activeCategory, setActiveCategory] = useState(""); 
-  const [searchTerm, setSearchTerm] = useState(""); 
+  // State variables
+  const [activeCategory, setActiveCategory] = useState(""); // Stores the active category for filtering
+  const [searchTerm, setSearchTerm] = useState(""); // Stores the search term for filtering
 
   return (
     <div id="home" className="home">
-      <Hero />
-      <ProductGridSettings 
-        searchTerm={searchTerm} 
-        setSearchTerm={setSearchTerm} 
-        activeCategory={activeCategory} 
-        setActiveCategory={setActiveCategory} />
-      <ProductGrid 
-        products={props.products} 
-        isFetching={props.isFetching} 
-        searchTerm={searchTerm} 
+      <Hero /> {/* Render the Hero component */}
+      <ProductGridSettings
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        activeCategory={activeCategory}
+        setActiveCategory={setActiveCategory}
+      /> {/* Render the ProductGridSettings component */}
+      <ProductGrid
+        products={props.products}
+        isFetching={props.isFetching}
+        searchTerm={searchTerm}
         activeCategory={activeCategory}
         handleAddItemToCart={props.handleAddItemToCart}
         handleRemoveItemFromCart={props.handleRemoveItemFromCart}
-        shoppingCart={props.shoppingCart}/>
-        <About />
-        <Contact />
-        <Footer /> 
+        shoppingCart={props.shoppingCart}
+      /> {/* Render the ProductGrid component */}
+      <About /> {/* Render the About component */}
+      <Contact /> {/* Render the Contact component */}
+      <Footer /> {/* Render the Footer component */}
     </div>
-  )
+  );
 }
