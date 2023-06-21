@@ -5,8 +5,6 @@ import ShoppingCartTable from "../shoppingCartTable/shoppingCartTable";
 export default function Sidebar(props) {
 
   const className = `sidebar ${props.sideBarIsOpen}`; 
-  console.log(props.sideBarIsOpen)
-  console.log("CLASSNAME: ", className);
   return (
     <section className={className}>
       <button onClick={props.handleSideBarToggle}>Cart</button>

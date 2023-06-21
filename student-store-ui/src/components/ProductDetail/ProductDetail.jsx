@@ -5,20 +5,37 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import ProductView from "../ProductView/ProductView"; 
 
+
+/*
+The ProductDetail component displays the details of a specific product based on its ID.
+
+Props:
+- handleAddItemToCart: A function to handle adding the item to the shopping cart.
+- handleRemoveItemFromCart: A function to handle removing the item from the shopping cart.
+- shoppingCart: An array representing the items in the shopping cart.
+*/ 
+
 const ProductDetail = (props) => {
 
+    // State variable to hold the data of a product based on its id
     const [productDetails, setProductDetails] = useState({});
+    // lets us know when axios is done fetching
     const [isDataFetching, setIsDataFetching] = useState(false);
+    // lets us know when the data is finished fetching
     const [hasFetched, setHasFetched] = useState(false);
+    // error handler state variable 
     const [error, setError] = useState(null);
 
 
+    // product id from URL
     const { productId } = useParams();
 
     useEffect(() => 
     {
+        // async function to fetch data for a specific product based on its id
         const fetchProductByID = async () => {
 
+            // set our state variables for keeping track of status of fetch
             setIsDataFetching(true);
             setHasFetched(false)
 

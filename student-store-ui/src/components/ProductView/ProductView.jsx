@@ -1,8 +1,20 @@
 import React from "react";
 import "./ProductView.css";
 
+/*
+The ProductView component displays the details of a specific product.
+
+Props:
+- productDetail: An object representing the details of the product to be displayed.
+- handleAddItemToCart: A function to handle adding the item to the shopping cart.
+- handleRemoveItemFromCart: A function to handle removing the item from the shopping cart.
+- shoppingCart: An array representing the items in the shopping cart.
+
+*/ 
+
 const ProductView = (props) => {
 
+    // Get the quantity of the product in the shopping cart
     const getProductQuantity = () => {
         return props.shoppingCart.find((product) => {
             return product.itemID === props.productDetail.id;
