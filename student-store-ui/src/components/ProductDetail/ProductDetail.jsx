@@ -40,7 +40,7 @@ const ProductDetail = (props) => {
             setHasFetched(false)
 
             try {
-                const response = await axios.get(`https://codepath-store-api.herokuapp.com/store/${productId}`);
+                const response = await axios.get(`http://localhost:3001/store/${productId}`);
                 console.log("response:", response)
                 if (response?.data?.product) {
                     setProductDetails(response?.data?.product);

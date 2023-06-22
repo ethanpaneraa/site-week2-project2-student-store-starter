@@ -30,11 +30,11 @@ export default function App() {
 
       // first try to get the data from API
       try {
-        const response = await axios.get("https://codepath-store-api.herokuapp.com/store"); 
+        const response = await axios.get("http://localhost:3001/store"); 
 
         // if good fetch, set the data
-        if (response?.data?.products) {
-          setProducts(response.data.products); 
+        if (response?.data?.productsList) {
+          setProducts(response.data.productsList); 
         } else {
           setError("No products found or Error fetching products"); 
         }
