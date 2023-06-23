@@ -14,5 +14,19 @@
 }
 
 .wishlist-grid-item {
-    
+    height: 425px;
+    width: 250px;
+    background: black; 
+    display: flex;
+    flex-direction: column;
+    border: solid 2px gray;
+}
+
+.wishlist-grid-item:hover {
+    border: solid 2px white;
+}
+
+.wishlist-grid-item img {
+    height: 225px;
+    width: 100%;
 }
