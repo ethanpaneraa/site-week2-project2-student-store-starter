@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const PurchasesHistory = (props) => {
 
-    const [purchases, setPurchases] = useState([]);
+    // const [purchases, setPurchases] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const PurchasesHistory = (props) => {
             try {
                 const response = await axios.get("http://localhost:3001/store/purchases/");
                 if (response?.data?.allPurchases) {
-                    setPurchases(response?.data?.allPurchases);
+                    props.setPurchases(response?.data?.allPurchases);
                     console.log("im here")
                 }
             } catch (error) {
@@ -38,15 +38,15 @@ const PurchasesHistory = (props) => {
             <h2>Loading...</h2>
           ) : (
             <div className="purchase-history">
-              {purchases.map((purchase) => (
+              {props.purchases.map((purchase) => (
                 <div className="purchase-card" key={purchase.newPurchaseID}>
                   <h3>{purchase.confirmationMessage.title}</h3>
-                  <p>{purchase.confirmationMessage.message}</p>
+                  {/* <p>{purchase.confirmationMessage.message}</p> */}
                   <p>User: {purchase.user.name}</p>
-                  <p>Email: {purchase.user.email}</p>
-                  <p>Timestamp: {purchase.newPurchaseTimeStamp}</p>
+                  {/* <p>Email: {purchase.user.email}</p>
+                  <p>Timestamp: {purchase.newPurchaseTimeStamp}</p> */}
                   <p>Grand Total: ${purchase.grandTotal.toFixed(2)}</p>
-                  <Link to={`/purchase/${purchase.newPurchaseID}`}>View Details</Link>
+                  <Link to={`/site-week2-project2-student-store-starter/purchases/${purchase.newPurchaseID}`}>View Details</Link>
                 </div>
               ))}
             </div>

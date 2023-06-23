@@ -31,6 +31,7 @@ export default function App() {
  const [lastPurchaseReceipt, setLastPurchaseReceipt] = useState({})
  const [purchaseSucess, setPurchaseSucess] = useState(false); // Indicates if the last purchase was successful
  const [error, setError] =useState(null); // Stores any errors that occur during data fetching
+ const [purchases, setPurchases] = useState([]); // array of all past purchases made
 
   // Fetch all product data on first load of web app
   useEffect(() => {
@@ -207,12 +208,19 @@ export default function App() {
 
             <Route 
               path="/site-week2-project2-student-store-starter/purchases"
-              element={<PurchasesHistory />}
+              element={<PurchasesHistory 
+              purchases={purchases}
+              setPurchases={setPurchases}
+              />}
             />
 
             <Route 
               path="/site-week2-project2-student-store-starter/purchases/:id"
-              element={<PurchaseDetail />}
+              element={<PurchaseDetail 
+              
+                purchases={purchases}
+                setPurchases={setPurchases}
+              />}
             />
 
             <Route 
