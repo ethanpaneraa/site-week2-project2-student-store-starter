@@ -119,6 +119,12 @@ export default function App() {
   }
 }
 
+  const handleCheckoutFormSubmit = async () => {
+
+    
+
+  }
+
   return (
     <div className="app">
       <BrowserRouter>

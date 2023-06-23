@@ -1,6 +1,7 @@
 import * as React from "react"
 import "./Sidebar.css"
 import ShoppingCartTable from "../shoppingCartTable/shoppingCartTable";
+import CheckOutForm from "../CheckOutForm/CheckOutForm";
 
 export default function Sidebar(props) {
 
@@ -13,6 +14,11 @@ export default function Sidebar(props) {
           products={props.products}
           shoppingCart={props.shoppingCart}
           sideBarIsOpen={props.sideBarIsOpen}
+        />
+        <CheckOutForm 
+        sideBarIsOpen={props.sideBarIsOpen}
+        shoppingCart={props.shoppingCart}
+        
         />
       </div>
     </section>
