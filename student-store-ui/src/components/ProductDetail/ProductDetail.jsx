@@ -66,6 +66,8 @@ const ProductDetail = (props) => {
                     productDetail={productDetails} 
                     handleAddItemToCart={props.handleAddItemToCart} 
                     handleRemoveItemFromCart={props.handleRemoveItemFromCart}
+                    handleRemoveItemFromWishlist={props.handleRemoveItemFromWishlist}
+                    handleAddItemToWishlist={props.handleAddItemToWishlist}
                     shoppingCart={props.shoppingCart} />
             ) :
             (

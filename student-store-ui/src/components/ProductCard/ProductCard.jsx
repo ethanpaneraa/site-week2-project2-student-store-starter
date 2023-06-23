@@ -26,6 +26,7 @@ const ProductCard = (props) => {
                 <div className="button-container">
                     <button onClick={(event) => {props.handleAddItemToCart(props.product)}}>+</button>
                     <button onClick={(event) => {props.handleRemoveItemFromCart(props.product)}}>-</button>
+                    <button onClick={(event) => {props.handleAddItemToWishlist(props.product)}}>Add to wishlist</button>
                 </div>
             </div>
         </div>

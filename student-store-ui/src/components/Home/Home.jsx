@@ -30,6 +30,7 @@ export default function Home(props) {
         handleAddItemToCart={props.handleAddItemToCart}
         handleRemoveItemFromCart={props.handleRemoveItemFromCart}
         shoppingCart={props.shoppingCart}
+        handleAddItemToWishlist={props.handleAddItemToWishlist}
       /> {/* Render the ProductGrid component */}
       <About /> {/* Render the About component */}
       <Contact /> {/* Render the Contact component */}

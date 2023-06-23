@@ -60,6 +60,7 @@ const ProductGrid = (props) => {
                                 handleAddItemToCart={props.handleAddItemToCart} 
                                 handleRemoveItemFromCart={props.handleRemoveItemFromCart} 
                                 shoppingCart={props.shoppingCart}
+                                handleAddItemToWishlist={props.handleAddItemToWishlist}
                             />
                         )
                     })

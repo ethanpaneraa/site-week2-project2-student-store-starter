@@ -32,6 +32,7 @@ const ProductView = (props) => {
                 <div className="button-container2">
                     <button onClick={(event) => {props.handleAddItemToCart(props.productDetail)}}>+</button>
                     <button onClick={(event) => {props.handleRemoveItemFromCart(props.productDetail)}}>-</button>
+                    <button onClick={(event) => {props.handleAddItemToWishlist(props.productDetail)}}>Add to Wishlist</button>
                 </div>
                 {getProductQuantity() != null && getProductQuantity().quantity > 0 ? <h3 className="product-quantaity">Quantity: {getProductQuantity().quantity}</h3> : <h3></h3>}
             </div>

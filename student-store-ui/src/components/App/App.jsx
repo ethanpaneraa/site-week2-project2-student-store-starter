@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useState, useEffect } from "react"
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom' 
 import axios from "axios"
 import Navbar from "../Navbar/Navbar"
 import Sidebar from "../Sidebar/Sidebar"
@@ -8,6 +8,7 @@ import Home from "../Home/Home"
 import ProductDetail from "../ProductDetail/ProductDetail"
 import PurchasesHistory from "../PurchasesHistory/PurchasesHistroy"
 import PurchaseDetail from "../PurchaseDetail/PurchaseDetail"
+import Wishlist from "../Wishlist/Wishlist"
 import NotFound from "../NotFound/NotFound"
 import "./App.css"
 
@@ -29,9 +30,10 @@ export default function App() {
  const [shoppingCart, setShoppingCard] = useState([]); // Stores the items in the shopping cart
  const [checkoutFormData, setCheckoutFormData] = useState(checkoutFormInputData); // Stores the form data for checkout
  const [lastPurchaseReceipt, setLastPurchaseReceipt] = useState({})
- const [purchaseSuccess, setPurchaseSuccess] = useState(false); // Indicates if the last purchase was successful
+ const [purchaseSuccess, setPurchaseSucess] = useState(false); // Indicates if the last purchase was successful
  const [error, setError] =useState(null); // Stores any errors that occur during data fetching
  const [purchases, setPurchases] = useState([]); // array of all past purchases made
+ const [wishlist, setWishlist] = useState([]); 
 
   // Fetch all product data on first load of web app
   useEffect(() => {
@@ -120,6 +122,48 @@ export default function App() {
     } 
   }
 }
+
+  const handleAddItemToWishlist = (item) => {
+    const itemToAdd = {
+      "itemID": 0, 
+      "quantity": 0 
+    };
+
+    // change the new item to match the id of the item we want to add
+    itemToAdd.itemID = item.id;
+
+    // check to see if this product already exist in our shopping cart
+    if ((!wishlist.find((product) => item.id === product.itemID))) {
+      // if the item doesn't exist, then add it to our shopping cart
+      itemToAdd.quantity = 1;
+      setWishlist((prev) => [...prev, itemToAdd]);
+      
+    // otherwise, we need to find the product in our shopping cart and increment the quantity 
+    }
+    console.log("wishlist:", wishlist)
+  }
+
+  const handleRemoveItemFromWishlist = (item) => {
+
+    const itemToRemove = {
+      "itemID": 0, 
+      "quantity": 0 
+    };
+
+    itemToRemove.itemID = item.id;
+    // first try to see if the item exist in our shopping cart
+    const currProduct = wishlist.find(product => item.id === product.itemID);
+    if (currProduct) {
+      // If the item quantity is 1, remove it from the shopping cart
+      if (currProduct.quantity === 1) {
+        let newWishlist = wishlist.filter((e) => {
+          return e.itemID !== itemToRemove.itemID;
+        })
+
+        setWishlist(newWishlist);
+      }  
+    }
+  }
   // Function to toggle the sidebar
   const handleSideBarToggle = () => {
     if (sideBarIsOpen === "open") {
@@ -163,7 +207,7 @@ export default function App() {
       console.log("Error when sending data:", error)
     })
 
-    setPurchaseSuccess(true);
+    setPurchaseSucess(true);
 
     // reset the shopping cart and user information back to their defaults
     setShoppingCard([]); 
@@ -195,6 +239,7 @@ export default function App() {
               isFetching={isFetching} 
               handleAddItemToCart={handleAddItemToCart} 
               handleRemoveItemFromCart={handleRemoveItemFromCart} 
+              handleAddItemToWishlist={handleAddItemToWishlist}
               shoppingCart={shoppingCart}/>} />
 
             <Route 
@@ -202,6 +247,8 @@ export default function App() {
               element={<ProductDetail 
                 handleAddItemToCart={handleAddItemToCart} 
                 handleRemoveItemFromCart={handleRemoveItemFromCart} 
+                handleAddItemToWishlist={handleAddItemToWishlist}
+                handleRemoveItemFromWishlist={handleRemoveItemFromWishlist}
                 shoppingCart={shoppingCart}ls
               />}
             />
@@ -217,9 +264,17 @@ export default function App() {
             <Route 
               path="/site-week2-project2-student-store-starter/purchases/:id"
               element={<PurchaseDetail 
-              
-                purchases={purchases}
-                setPurchases={setPurchases}
+              purchases={purchases}
+              setPurchases={setPurchases}
+              />}
+            />
+
+            <Route 
+              path="/site-week2-project2-student-store-starter/wishlist"
+              element={<Wishlist
+              wishlist={wishlist}
+              handleRemoveItemFromWishlist={handleRemoveItemFromWishlist}
+              products={products}
               />}
             />
 
