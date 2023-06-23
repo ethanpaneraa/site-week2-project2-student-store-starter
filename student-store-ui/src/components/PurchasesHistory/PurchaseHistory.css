@@ -1,11 +1,42 @@
 .purchase-history-container {
     display: flex;
     flex-direction: column;
+    width: 80%;
+    margin: 0 auto; 
 }
+
+
 
 .purchase-history {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap; 
+    gap: 50px;
+    padding: 50px;
     justify-content: center;
+}
+
+.purchase-history-labels {
+    display: flex;
+    align-items: center;
     flex-direction: column;
+    justify-content: center;
+}
+
+.purchase-card {
+    background-color: black;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 500px;
+    height: auto;
+}
+
+.email-purchase-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+    /* width: 700px; */
 }

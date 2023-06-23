@@ -22,7 +22,7 @@ const PurchaseDetail = (props) => {
         <h2>Order ID: {purchase.newPurchaseID}</h2>
         <p>User Name: {purchase.user.name}</p>
         <p>User Email: {purchase.user.email}</p>
-        <p>Total: {purchase.grandTotal}</p>
+        <p>Total: ${purchase.grandTotal.toFixed(2)}</p>
         <p>Timestamp: {purchase.newPurchaseTimeStamp}</p> 
         <p>{purchase.confirmationMessage.message}</p>
       </div>

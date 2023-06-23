@@ -29,7 +29,7 @@ export default function App() {
  const [shoppingCart, setShoppingCard] = useState([]); // Stores the items in the shopping cart
  const [checkoutFormData, setCheckoutFormData] = useState(checkoutFormInputData); // Stores the form data for checkout
  const [lastPurchaseReceipt, setLastPurchaseReceipt] = useState({})
- const [purchaseSucess, setPurchaseSucess] = useState(false); // Indicates if the last purchase was successful
+ const [purchaseSuccess, setPurchaseSuccess] = useState(false); // Indicates if the last purchase was successful
  const [error, setError] =useState(null); // Stores any errors that occur during data fetching
  const [purchases, setPurchases] = useState([]); // array of all past purchases made
 
@@ -163,7 +163,7 @@ export default function App() {
       console.log("Error when sending data:", error)
     })
 
-    setPurchaseSucess(true);
+    setPurchaseSuccess(true);
 
     // reset the shopping cart and user information back to their defaults
     setShoppingCard([]); 
@@ -186,7 +186,7 @@ export default function App() {
           handleCheckoutFormChange={handleCheckoutFormChange}
           handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
           lastPurchaseReceipt={lastPurchaseReceipt}
-          purchaseSucess={purchaseSucess}
+          purchaseSucess={purchaseSuccess}
           />
           <Routes>
             <Route 

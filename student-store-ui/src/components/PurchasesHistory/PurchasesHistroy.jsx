@@ -12,7 +12,7 @@ const PurchasesHistory = (props) => {
     const [filter, setFilter] = useState("");
 
     const filteredPurchases = props.purchases.filter((purchase) => {
-        return purchase.user.email.includes(filter.toLowerCase());
+        return purchase.user.email.toLowerCase().includes(filter.toLowerCase());
     })
 
     useEffect(() => {
@@ -40,23 +40,25 @@ const PurchasesHistory = (props) => {
 
     return (
         <div className="purchase-history-container">
+          <div className="purchase-history-labels">
+                <h1>All Purchases</h1>
+                <input 
+                  className="email-purchase-filter" 
+                  type="text" value={filter} 
+                  onChange={event => setFilter(event.target.value)} 
+                  placeholder="Filter by email" />
+              </div>
           {isFetching ? (
             <h2>Loading...</h2>
           ) : (
             <div className="purchase-history">
-              <h2>All Purchases</h2>
-              <input type="text" value={filter} onChange={event => setFilter(event.target.value)} placeholder="Filter by email">
-              </input>
               {filteredPurchases.map((purchase) => (
                 <div className="purchase-card" key={purchase.newPurchaseID}>
                   <h3>{purchase.confirmationMessage.title}</h3>
-                  {/* <p>{purchase.confirmationMessage.message}</p> */}
                   <p>User: {purchase.user.name}</p>
                   <p>Email: {purchase.user.email}</p>
-                  {/* <p>Email: {purchase.user.email}</p>
-                  <p>Timestamp: {purchase.newPurchaseTimeStamp}</p> */}
-                  <p>Grand Total: ${purchase.grandTotal.toFixed(2)}</p>
-                  <Link to={`/site-week2-project2-student-store-starter/purchases/${purchase.newPurchaseID}`}>View Details</Link>
+                  <p>Purchase Total: ${purchase.grandTotal.toFixed(2)}</p>
+                  <Link to={`/site-week2-project2-student-store-starter/purchases/${purchase.newPurchaseID}`}>View Purchase Details</Link>
                 </div>
               ))}
             </div>
