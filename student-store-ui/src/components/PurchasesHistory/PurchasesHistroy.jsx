@@ -9,6 +9,12 @@ const PurchasesHistory = (props) => {
     // const [purchases, setPurchases] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
 
+    const [filter, setFilter] = useState("");
+
+    const filteredPurchases = props.purchases.filter((purchase) => {
+        return purchase.user.email.includes(filter.toLowerCase());
+    })
+
     useEffect(() => {
 
         const fetchPurchases = async () => {
@@ -38,11 +44,15 @@ const PurchasesHistory = (props) => {
             <h2>Loading...</h2>
           ) : (
             <div className="purchase-history">
-              {props.purchases.map((purchase) => (
+              <h2>All Purchases</h2>
+              <input type="text" value={filter} onChange={event => setFilter(event.target.value)} placeholder="Filter by email">
+              </input>
+              {filteredPurchases.map((purchase) => (
                 <div className="purchase-card" key={purchase.newPurchaseID}>
                   <h3>{purchase.confirmationMessage.title}</h3>
                   {/* <p>{purchase.confirmationMessage.message}</p> */}
                   <p>User: {purchase.user.name}</p>
+                  <p>Email: {purchase.user.email}</p>
                   {/* <p>Email: {purchase.user.email}</p>
                   <p>Timestamp: {purchase.newPurchaseTimeStamp}</p> */}
                   <p>Grand Total: ${purchase.grandTotal.toFixed(2)}</p>
