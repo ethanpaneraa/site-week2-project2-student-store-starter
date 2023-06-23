@@ -16,7 +16,7 @@ class Store {
         return product; 
     }
 
-    static async createPurchase(user, reciept) {
+    static async createPurchase(user, receipt) {
 
         // variables to be user later to setup purchase object
         let grandTotal = 0; 
@@ -29,7 +29,7 @@ class Store {
         }
 
         // 
-        const newPurchase = reciept.sort((a,b) => a.itemID - b.itemID)
+        const newPurchase = receipt.sort((a,b) => a.itemID - b.itemID)
 
         for (let i = 0; i < newPurchase.length; i++) {
             for (let j = 0; j < newPurchase.length; j++) {
