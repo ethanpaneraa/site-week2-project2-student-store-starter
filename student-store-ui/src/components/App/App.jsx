@@ -6,6 +6,8 @@ import Navbar from "../Navbar/Navbar"
 import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
 import ProductDetail from "../ProductDetail/ProductDetail"
+import PurchasesHistory from "../PurchasesHistory/PurchasesHistroy"
+import PurchaseDetail from "../PurchaseDetail/PurchaseDetail"
 import NotFound from "../NotFound/NotFound"
 import "./App.css"
 
@@ -203,7 +205,19 @@ export default function App() {
               />}
             />
 
-            <Route path="*" element={<NotFound />} />
+            <Route 
+              path="/site-week2-project2-student-store-starter/purchases"
+              element={<PurchasesHistory />}
+            />
+
+            <Route 
+              path="/site-week2-project2-student-store-starter/purchases/:id"
+              element={<PurchaseDetail />}
+            />
+
+            <Route 
+              path="*" 
+              element={<NotFound />} />
           </Routes>
         </main>
       </BrowserRouter>
