@@ -145,5 +145,44 @@
       "price": 999.99
     }
   ],
-  "purchases": []
+  "purchases": [
+    {
+      "newPurchaseID": 1,
+      "user": {
+        "name": "asdd",
+        "email": "asd"
+      },
+      "newPurchase": [
+        {
+          "itemID": 1,
+          "quantity": 4
+        }
+      ],
+      "grandTotal": 7.3260000000000005,
+      "newPurchaseTimeStamp": "2023-06-23T18:18:08.203Z",
+      "confirmationMessage": {
+        "title": "Order #1",
+        "message": "Receipt for asdd available at asd for a total of $7.33"
+      }
+    },
+    {
+      "newPurchaseID": 2,
+      "user": {
+        "name": "Ethan Pineda",
+        "email": "ethanpineda2025@u.norrthwestern.edu"
+      },
+      "newPurchase": [
+        {
+          "itemID": 5,
+          "quantity": 6
+        }
+      ],
+      "grandTotal": 83.25,
+      "newPurchaseTimeStamp": "2023-06-23T18:21:10.292Z",
+      "confirmationMessage": {
+        "title": "Order #2",
+        "message": "Receipt for Ethan Pineda available at ethanpineda2025@u.norrthwestern.edu for a total of $83.25"
+      }
+    }
+  ]
 }

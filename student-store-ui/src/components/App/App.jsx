@@ -16,7 +16,7 @@ import "./App.css"
 export default function App() {
 
   const checkoutFormInputData = {
-    "username": "", 
+    "name": "", 
     "email": ""
   }
 
@@ -27,7 +27,7 @@ export default function App() {
  const [shoppingCart, setShoppingCard] = useState([]); // Stores the items in the shopping cart
  const [checkoutFormData, setCheckoutFormData] = useState(checkoutFormInputData); // Stores the form data for checkout
  const [lastPurchaseReceipt, setLastPurchaseReceipt] = useState({})
- const [username, setUsername] = useState("")
+ const [purchaseSucess, setPurchaseSucess] = useState(false); // Indicates if the last purchase was successful
  const [error, setError] =useState(null); // Stores any errors that occur during data fetching
 
   // Fetch all product data on first load of web app
@@ -37,7 +37,7 @@ export default function App() {
 
       // first try to get the data from API
       try {
-        const response = await axios.get("http://localhost:3001/store"); 
+        const response = await axios.get("http://localhost:3001/store/"); 
 
         // if good fetch, set the data
         if (response?.data?.productsList) {
@@ -130,33 +130,40 @@ export default function App() {
   const handleCheckoutFormChange = (event) => {
     setCheckoutFormData((prev) => ({
       ...prev, [event.target.name] : event.target.value}))
+    console.log(checkoutFormData); 
   }
 
   // handles when the user presses the submit for their order
-  const handleOnSubmitCheckoutForm= async () => {
+  const handleOnSubmitCheckoutForm = async () => {
 
     // base case, we need to make sure we don't send an empty shopping cart to the server
     if (!shoppingCart.length > 0 ) {
       alert("shopping cart is empty: can't submit")
+      return null; 
     }
 
     // making the post request for our node server with the information 
     // about this customer as well as their shopping cart information
-    await axios.post("http://localhost:3001/store", {
+    console.log("here"); 
+    await axios.post(`http://localhost:3001/store/`, {
       user : checkoutFormData, 
       shoppingCart : shoppingCart
     }) 
     // this is going to be useful for displaying all of the recent purchases
     .then((response) => {
+      console.log("Response from server:", response); 
       setLastPurchaseReceipt(response.purchase)
     })
     .catch((error) => {
       console.log("Error when sending data:", error)
     })
 
+    setPurchaseSucess(true);
+
     // reset the shopping cart and user information back to their defaults
     setShoppingCard([]); 
     setCheckoutFormData(checkoutFormInputData); 
+    
 
   }
 
@@ -170,6 +177,11 @@ export default function App() {
           shoppingCart={shoppingCart}
           handleSideBarToggle={handleSideBarToggle}
           products={products}
+          checkoutFormData={checkoutFormData}
+          handleCheckoutFormChange={handleCheckoutFormChange}
+          handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
+          lastPurchaseReceipt={lastPurchaseReceipt}
+          purchaseSucess={purchaseSucess}
           />
           <Routes>
             <Route 
