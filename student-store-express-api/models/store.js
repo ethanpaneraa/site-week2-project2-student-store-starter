@@ -85,12 +85,9 @@ class Store {
             confirmationMessage
         };
 
-        console.log("made it here")
-        // console.log("made it here")
         // finally send the purchase to the database
         await storage.get("purchases").push(newPurchaseObject).write();
 
-        // console.log("made it here")
         return newPurchaseObject;
         
     }

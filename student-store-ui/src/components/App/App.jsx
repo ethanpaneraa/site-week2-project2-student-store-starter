@@ -151,8 +151,10 @@ export default function App() {
     }) 
     // this is going to be useful for displaying all of the recent purchases
     .then((response) => {
+      console.log("response:", response); 
       console.log("Response from server:", response); 
-      setLastPurchaseReceipt(response.purchase)
+      setLastPurchaseReceipt(response.data.purchase)
+      console.log("last purchase receipt:", lastPurchaseReceipt);
     })
     .catch((error) => {
       console.log("Error when sending data:", error)

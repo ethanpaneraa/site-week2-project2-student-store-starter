@@ -26,7 +26,9 @@ export default function Sidebar(props) {
         purchaseSucess={props.purchaseSucess}
         />
         <Receipt 
-        
+          products={props.products}
+          lastPurchaseReceipt={props.lastPurchaseReceipt}
+          purchaseSucess={props.purchaseSucess}
         />
       </div>
     </section>
