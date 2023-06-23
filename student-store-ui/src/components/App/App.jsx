@@ -15,12 +15,19 @@ import "./App.css"
  */
 export default function App() {
 
+  const checkoutFormInputData = {
+    "username": "", 
+    "email": ""
+  }
+
  // State variables
  const [products, setProducts] = useState([]); // Stores the list of products
  const [isFetching, setIsFetching] = useState(false); // Indicates if data is being fetched
  const [sideBarIsOpen, setSideBarIsOpen] = useState("closed"); // Controls the state of the sidebar
  const [shoppingCart, setShoppingCard] = useState([]); // Stores the items in the shopping cart
- const [checkoutFormData, setCheckoutOUtFormData] = useState(null); // Stores the form data for checkout
+ const [checkoutFormData, setCheckoutFormData] = useState(checkoutFormInputData); // Stores the form data for checkout
+ const [lastPurchaseReceipt, setLastPurchaseReceipt] = useState({})
+ const [username, setUsername] = useState("")
  const [error, setError] =useState(null); // Stores any errors that occur during data fetching
 
   // Fetch all product data on first load of web app
@@ -119,9 +126,37 @@ export default function App() {
   }
 }
 
-  const handleCheckoutFormSubmit = async () => {
+  // handles the case when users enter their information into the checkout form 
+  const handleCheckoutFormChange = (event) => {
+    setCheckoutFormData((prev) => ({
+      ...prev, [event.target.name] : event.target.value}))
+  }
 
-    
+  // handles when the user presses the submit for their order
+  const handleOnSubmitCheckoutForm= async () => {
+
+    // base case, we need to make sure we don't send an empty shopping cart to the server
+    if (!shoppingCart.length > 0 ) {
+      alert("shopping cart is empty: can't submit")
+    }
+
+    // making the post request for our node server with the information 
+    // about this customer as well as their shopping cart information
+    await axios.post("http://localhost:3001/store", {
+      user : checkoutFormData, 
+      shoppingCart : shoppingCart
+    }) 
+    // this is going to be useful for displaying all of the recent purchases
+    .then((response) => {
+      setLastPurchaseReceipt(response.purchase)
+    })
+    .catch((error) => {
+      console.log("Error when sending data:", error)
+    })
+
+    // reset the shopping cart and user information back to their defaults
+    setShoppingCard([]); 
+    setCheckoutFormData(checkoutFormInputData); 
 
   }
 
