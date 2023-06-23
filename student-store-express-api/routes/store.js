@@ -5,8 +5,8 @@ const { BadRequestError, NotFoundError } = require("./utils/errors");
 
 router.get("/", async (req, res, next) => {
     try {
-        const productsList = await Store.getAllProducts();
-        res.status(200).json({productsList});
+        const products = await Store.getAllProducts();
+        res.status(200).json({products});
     } catch (error) {
         next(error);
     }
@@ -23,6 +23,15 @@ router.get("/:id", async (req, res, next) => {
     } catch (error) {
         next(error);
     }
+})
+
+router.get("/purchases", async (res, res, next) => {
+
+    try {
+        
+
+    }
+
 })
 
 module.exports = router;
