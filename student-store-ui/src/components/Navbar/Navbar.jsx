@@ -16,6 +16,7 @@ export default function Navbar() {
           <a href="/site-week2-project2-student-store-starter/#about">About</a>
           <a href="/site-week2-project2-student-store-starter/#contact">Contact</a>
           <a href="/site-week2-project2-student-store-starter/#buy-now">Buy Now</a>
+          <a href="/site-week2-project2-student-store-starter/purchases">Purchases</a>
         </div>
       </div>
     </nav>
