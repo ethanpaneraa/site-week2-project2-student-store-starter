@@ -373,6 +373,102 @@
         "title": "Order #12",
         "message": "Receipt for dsa available at asdad for a total of $11.10"
       }
+    },
+    {
+      "newPurchaseID": 13,
+      "user": {
+        "name": "Ethan Pineda",
+        "email": "joshuapineda66@gmail.com"
+      },
+      "newPurchase": [
+        {
+          "itemID": 10,
+          "quantity": 3
+        },
+        {
+          "itemID": 14,
+          "quantity": 4
+        }
+      ],
+      "grandTotal": 1008.1945000000001,
+      "newPurchaseTimeStamp": "2023-06-23T23:56:34.597Z",
+      "confirmationMessage": {
+        "title": "Order #13",
+        "message": "Receipt for Ethan Pineda available at joshuapineda66@gmail.com for a total of $1008.19"
+      }
+    },
+    {
+      "newPurchaseID": 14,
+      "user": {
+        "name": "Astro Salesforce",
+        "email": "Astro.salesforce@gmail.com"
+      },
+      "newPurchase": [
+        {
+          "itemID": 4,
+          "quantity": 3
+        },
+        {
+          "itemID": 5,
+          "quantity": 3
+        },
+        {
+          "itemID": 11,
+          "quantity": 3
+        }
+      ],
+      "grandTotal": 1169.6625,
+      "newPurchaseTimeStamp": "2023-06-23T23:57:52.800Z",
+      "confirmationMessage": {
+        "title": "Order #14",
+        "message": "Receipt for Astro Salesforce available at Astro.salesforce@gmail.com for a total of $1169.66"
+      }
+    },
+    {
+      "newPurchaseID": 15,
+      "user": {
+        "name": "Ethan Pineda",
+        "email": "test@gmail.com"
+      },
+      "newPurchase": [
+        {
+          "itemID": 2,
+          "quantity": 4
+        },
+        {
+          "itemID": 3,
+          "quantity": 4
+        },
+        {
+          "itemID": 4,
+          "quantity": 3
+        }
+      ],
+      "grandTotal": 51.2635,
+      "newPurchaseTimeStamp": "2023-06-23T23:59:14.020Z",
+      "confirmationMessage": {
+        "title": "Order #15",
+        "message": "Receipt for Ethan Pineda available at test@gmail.com for a total of $51.26"
+      }
+    },
+    {
+      "newPurchaseID": 16,
+      "user": {
+        "name": "codey salesorce",
+        "email": "codey@salesforce.com"
+      },
+      "newPurchase": [
+        {
+          "itemID": 2,
+          "quantity": 15
+        }
+      ],
+      "grandTotal": 41.625,
+      "newPurchaseTimeStamp": "2023-06-24T00:00:10.716Z",
+      "confirmationMessage": {
+        "title": "Order #16",
+        "message": "Receipt for codey salesorce available at codey@salesforce.com for a total of $41.63"
+      }
     }
   ]
 }

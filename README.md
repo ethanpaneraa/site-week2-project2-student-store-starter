@@ -15,7 +15,7 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 
 Deployed Application (using GitHub Pages): [Student Store UI](https://ethanpaneraa.github.io/site-week2-project2-student-store-starter/)
 
-## Walkthrough Video
+## Week 2 Walkthrough Video
 
 `https://www.loom.com/share/f9ca5fa43330467ead4be32661911506`
 
@@ -36,6 +36,10 @@ Deployed Application (using GitHub Pages): [Student Store UI](https://ethanpaner
 - [x] When users go to a page that doesn't exist, they are shown a page telling them so
 
 ## *Week 3* Application Features
+
+## Week 3 Walkthrough Video
+
+`https://www.loom.com/share/7a6c3eac50bc4a36930129c6576cbc3c`
 
 ### Core Features
 
